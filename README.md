@@ -34,12 +34,12 @@ Based on the methology presented, it is recommended for budding software enginee
  1. *What were the highest-salaried remote software engineering jobs posted in 2023?*  
    The intention here was to isolate which job postings had the highest financial compensation, as a stand-in for 'most valued'. Jos postings that omitted Potential patterns to identify would have been in the forms of job title, employer, hiring quarter, or pay range. This was limited to remote roles to work outside of the barriers of geography-specific demands and GDP. It was found that software engineering **jobs posted that had the highest salary were more likely to be posted during the latter half of the year, in the first fiscal quarter** (with some in the second quarter). There were no other correlations within this dataset, but it should be noted that two of the top ten highest-paying jobs were from the company *MongoDB* which specializes in a data manipulation syntax.  
 
- ![query 1 chart](/assets/sql1_results.jpg)
+ ![query 1 chart](/project_sql/assets/sql1_results.jpg)
 
  2. *What were the skills most often required for the top ten? What were they for the top 20?*  
   To further determine the most valued skills, those required from the top-ten highest-paying remote software engineer job postings were extracted, connected across two additional databases (along job_id to extract skill_id, then along skill_id to extract skill_name). It must be noted here that some skills had multiple IDs, distinguished by whether they were used for data analysis or programming (skill_type). There did not seem to be justification suitable to isolate for one of these when considering that the type of use-case was not always specified in the job posting and was determined through keyword extraction whent he database was built. As such, the distinction is not reliable enough for analysis. Accounting for the top ten jobs, the three most in-demand skills were MongoDB, javascript, and python. However, when adjusting for the top 20 highest paying software engineer job postings, **the most-requested skills were Python, AWS, and MongoDB,** followed by javascript, snowflake, and typescript. Due to two postings from the company *MongoDB* being int he top ten, expanding the search to the top 20 highest-salaried software engineer jobs may be a more reliable indicator of demand across the industry. While MongoDB fell slightly in demand, it remained a highly valued skill.  
 
- ![results from top 20 highest-salaried jobs](/assets/project_sql/assets/Skill Demand for Top 20 Highest-Salaried Job Postings.png)
+ ![results from top 20 highest-salaried jobs](project_sql/assets/Skill Demand for Top 20 Highest-Salaried Job Postings.png/)
 
  3. *What is the average salary per skill across all remote software engineering jobs?*
 
