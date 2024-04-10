@@ -26,7 +26,7 @@ WITH top_paying_jobs AS (
         salary_year_avg DESC
 
     LIMIT 10
-)
+) 
 
 SELECT 
     top_paying_jobs.*,
@@ -149,4 +149,7 @@ JSON RESULTS:
     "skills": "c#",
     "num_of_job_requiring_this_skill": "1"
   }
-] */
+] 
+
+RESULTS SUMMARY:
+- accounting for the top 10 jobs, the three most in-demand skills were MONGODB, Javascript, and Python. However, when changing to the top 20 highest paying Software Eng job postings, the most-requested skills were python, aws, and mongodb, followed by javascript, snowflake, and typescript. While MongoDB fell off the top spot, it remains a highly valued skill*/
