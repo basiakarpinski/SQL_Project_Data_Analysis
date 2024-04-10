@@ -29,7 +29,7 @@ Based on the methology presented, it is recommended for budding software enginee
  4. What are the best skills to have for software engineering jobs, correlating market demand and average salary?
 
 ## Analysis
- -- results
+
  ### The rationale and approach to each query:
  1. *What were the highest-salaried remote software engineering jobs posted in 2023?*  
    The intention here was to isolate which job postings had the highest financial compensation, as a stand-in for 'most valued'. Jos postings that omitted Potential patterns to identify would have been in the forms of job title, employer, hiring quarter, or pay range. This was limited to remote roles to work outside of the barriers of geography-specific demands and GDP. It was found that software engineering **jobs posted that had the highest salary were more likely to be posted during the latter half of the year, in the first fiscal quarter** (with some in the second quarter). There were no other correlations within this dataset, but it should be noted that two of the top ten highest-paying jobs were from the company *MongoDB* which specializes in a data manipulation syntax.  
