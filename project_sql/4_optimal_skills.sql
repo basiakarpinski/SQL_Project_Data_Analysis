@@ -18,7 +18,7 @@ WITH skills_demand AS ( --most frequent skill req
     WHERE
         job_title_short = 'Software Engineer'
         AND salary_year_avg IS NOT NULL
-        AND job_work_from_home = TRUE
+        AND job_location = 'Anywhere'
 
     GROUP BY
         skills_dim.skill_id
@@ -36,7 +36,7 @@ WITH skills_demand AS ( --most frequent skill req
     WHERE
         job_title_short = 'Software Engineer' 
         AND salary_year_avg IS NOT NULL
-        AND job_work_from_home = TRUE
+        AND job_location = 'Anywhere'
 
     GROUP BY
         skills_dim.skill_id
