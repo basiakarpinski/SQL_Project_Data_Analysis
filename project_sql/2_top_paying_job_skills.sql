@@ -25,25 +25,25 @@ WITH top_paying_jobs AS (
     ORDER BY
         salary_year_avg DESC
 
-    LIMIT 10
+    LIMIT 20
 ) 
 
 SELECT 
-    top_paying_jobs.*,
-    skills
-  -- COUNT(top_paying_jobs.job_id) AS num_of_job_requiring_this_skill <- for the below aggregation
+  /*  top_paying_jobs.*,*/
+    skills,
+   COUNT(top_paying_jobs.job_id) AS num_of_job_requiring_this_skill --<- for the below aggregation
 FROM top_paying_jobs
     INNER JOIN skills_job_dim ON top_paying_jobs.job_id = skills_job_dim.job_id
     INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
 
-/* Let's organize it by skill to see which skills are most common in these top 10 
+/* Let's organize it by skill to see which skills are most common in these top 10 */
 
 GROUP BY
     skills
 ORDER BY
     num_of_job_requiring_this_skill DESC
 
-JSON RESULTS:
+/*JSON RESULTS:
 [
   {
     "skills": "mongodb",
