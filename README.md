@@ -66,11 +66,59 @@ Based on the methology presented, it is recommended for budding software enginee
  ![Results for average salary per skill. Due to the number of skills, labels have been concatenated. please see the linked SQL file for full results.](/project_sql/assets/Average_Salary_Per_Skill.png)   
 
  4. *What are the best skills to have for software engineering jobs, correlating market demand and average salary?*  
-  In the final query, I created a common talbe expression (CTE) that compared the demand of various skills against their average salary; in other words, a concatenation of Query 2, without the top-salaried limit, and Query 3. The goal is to extrapolate the hard skills which provide both employability via high market demand, and are well compensated—the "best" skills to prioritize learning. This query allows some fine turning based on which of the aforementions two conditions is more important to an individual; as written it prioritizes average salary first and, where the pay may be the same, by demand. The results of this query are limited to the skills that appeared in ten or more job postings for brevity.  
+  In the final query, I created a common table expression (CTE) that compared the demand of various skills against their average salary; in other words, a concatenation of Query 2, without the top-salaried limit, and Query 3. The goal is to extrapolate the hard skills which provide both employability via high market demand, and are well compensated—the "best" skills to prioritize learning. This query allows some fine turning based on which of the aforementions two conditions is more important to an individual; as written it prioritizes average salary first and, where the pay may be the same, by demand. The results of this query are limited to the skills that appeared in ten or more job postings for brevity.  
+  ```sql
+  WITH skills_demand AS ( --most frequent skill req
+    SELECT
+        skills_dim.skill_id,
+        skills,
+        COUNT(skills_job_dim.job_id) AS demand_count
+    FROM job_postings_fact
+        INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+        INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+    WHERE
+        job_title_short = 'Software Engineer'
+        AND salary_year_avg IS NOT NULL
+        AND job_location = 'Anywhere'
+    GROUP BY
+        skills_dim.skill_id
+
+), average_salary AS ( --highest paid skills by average salary offered
+    SELECT
+    skills_dim.skill_id,
+    skills,
+    ROUND(AVG(salary_year_avg), 0) AS avg_salary
+    FROM job_postings_fact
+        INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+        INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+    WHERE
+        job_title_short = 'Software Engineer' 
+        AND salary_year_avg IS NOT NULL
+        AND job_location = 'Anywhere'
+    GROUP BY
+        skills_dim.skill_id
+)
+
+SELECT
+   -- skills_demand.skill_id,
+    skills_demand.skills,
+    demand_count,
+    avg_salary
+FROM
+    skills_demand
+INNER JOIN average_salary ON skills_demand.skill_id = average_salary.skill_id
+WHERE
+    demand_count >= 10
+ORDER BY
+        avg_salary DESC,
+        demand_count DESC
+LIMIT 20
+```  
+
+By this table, the skills which are both in-demand in software engineer roles and well paid are **typescript, javascript, and python.** Interestingly, these results more closely match the output from Query 2 than Query 3, corroborating the suspicion that skills with higher salaries likely have low demand and their average salary was based on a small subsample.
 
 ![Results for skills listed in software engineer postings at least ten times, ordered by average salary across those postings.](/project_sql/assets/optimized-for-demand-and-pay.png)  
 
-By this table, the skills which are both in-demand in software engineer roles and well paid are **typescript, javascript, and python.** Interestingly, these results more closely match the output from Query 2 than Query 3, corroborating the suspicion that skills with higher salaries likely have low demand and their average salary was based on a small subsample.
 
 ## Conclusion
  -- barriers to generalizing these results (niche and proficiency, geographical differences in demand and salary, interal hires, posting reliability)
