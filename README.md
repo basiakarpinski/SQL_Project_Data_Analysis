@@ -10,7 +10,7 @@ Based on the methology presented, it is recommended for budding software enginee
 
 ## Methodology
 
- The dataset used for this project was collected from uke Barousse's [SQL Course](https://lukebarousse.com/sql). The comprehensive course features datasets needed for querying, practice problems, video lessons to guide first-time data analysts, and further practice problems for developing confidence and proficiency.
+ The dataset used for this project was collected from Luke Barousse's [SQL Course](https://lukebarousse.com/sql). The comprehensive course features datasets needed for querying, practice problems, video lessons to guide first-time data analysts, and further practice problems for developing confidence and proficiency.
  
  ### The programs and languages used for this project were:
  - **PostgreSQL** for connecting the database and managing data
