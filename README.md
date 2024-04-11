@@ -114,13 +114,13 @@ ORDER BY
 LIMIT 20
 ```  
 
-By this table, the skills which are both in-demand in software engineer roles and well paid are **typescript, javascript, and python.** Interestingly, these results more closely match the output from Query 2 than Query 3, corroborating the suspicion that skills with higher salaries likely have low demand and their average salary was based on a small subsample.
+By this table, the skills which are both in-demand in software engineer roles and well-paid are **typescript, javascript, and python.** Interestingly, these results more closely match the output from Query 2 than Query 3, corroborating the suspicion that skills with higher salaries likely have low demand and their average salary was based on a small subsample.
 
 ![Results for skills listed in software engineer postings at least ten times, ordered by average salary across those postings.](/project_sql/assets/optimized-for-demand-and-pay.png)  
 
 
 ## Conclusion
- From this series of queries, the top skill for software engineers to know in 2023 was indisputably python, with other common scripting languages, typescript and javascript also in demand. Likewise, due to the growing prevalence of AWS and Microsoft Azure hosting and cloud rendering services, experience with these technologies is also an asset. Finally, there is some trend in software engeineering work to also be familiar with querying lanauges such as MongoDB and SQL. It may then befit coding-adjacent workers—technical artists, producers, render farm managers, to name a few—to also develop some preliminary understanding in querying databases, scripting tools, and perhaps most importantly, troubleshooting script errors and reading log files.  
+ From this series of queries, the top skill for software engineers to know in 2023 was indisputably python, with other common scripting languages, typescript and javascript also in demand. Likewise, due to the growing prevalence of AWS and Microsoft Azure hosting and cloud rendering services, experience with these technologies is also an asset. Finally, there is some trend in software engeineering vacancies to also request familiarity with querying languages such as MongoDB and SQL. It may then befit programming-adjacent workers—technical artists, producers, render farm managers, to name a few—to also develop some preliminary understanding in querying databases, scripting tools, and perhaps most importantly, troubleshooting script errors and reading log files.  
 
  There are some caveats to the analysis presented, and the generalizability of these results. 
  - Queries were restricted to only software engineering positions, roles typically requiring specialized and deep knowledge of programming. These may not be the most optimal skills for those who only work in bureaucratic roles far outside of asset pipelines.
