@@ -136,3 +136,4 @@ To continue this work would behoove procuring a newer, regularly updated dataset
 
 
 #### I would like to express my gratitutde to [Luke Barousse](https://www.lukebarousse.com) and [Kelly Adams](https://www.kellyjadams.com) for putting together the SQL course from which this project was produced, for providing the dataset publicly, and diligently putting into practice the cornerstones of good instructional design for the benefit of others. I look forward to more courses under your shared guidance.
+
