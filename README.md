@@ -82,7 +82,6 @@ Based on the methology presented, it is recommended for budding software enginee
         AND job_location = 'Anywhere'
     GROUP BY
         skills_dim.skill_id
-
 ), average_salary AS ( --highest paid skills by average salary offered
     SELECT
     skills_dim.skill_id,
@@ -121,9 +120,9 @@ By this table, the skills which are both in-demand in software engineer roles an
 
 
 ## Conclusion
- -- barriers to generalizing these results (niche and proficiency, geographical differences in demand and salary, interal hires, posting reliability)
+ From this series of queries, the top skill for software engineers to know in 2023 was indisputably python, with other common scripting languages, typescript and javascript also in demand. Likewise, due to the growing prevalence of AWS and Microsoft Azure hosting and cloud rendering services, experience with these technologies is also an asset. Finally, there is some trend in software engeineering work to also be familiar with querying lanauges such as mongoDB and SQL. It may then be beneficial for coding adjacent workers—technical artists, producers, render farm managers, to name a few—to also develop some preliminary understanding in querying databases, scripting tools, and perhaps most importantly, troubleshooting script errors and reading log files.  
+
+ There are some caveats to the analysis presented, and the the generalizability of these results. First, queries were restricted to only software engineering positions, roles typically requiring specialized and deep knowledge of programming. These may not be the most optimal skills for those who only work in bureaucratic roles far outside of asset pipelines. Likewise, the profileration of AI-based assistants means simple scripts can be built using natural language descriptor prompts, albeit this method requires both benig able to read and adjust the script as necessary, and a strong understanding of digital security protection when requesting and running AI-generated scripts. -- barriers to generalizing these results (niche and proficiency, geographical differences in demand and salary, interal hires, posting reliability)
  -- alternative frameworks of analysis (matrix analysis, monthly trends, experience brackets, part-time vs full time, regular vs contract vs freelance employment)
  -- newer database (how to webscrape)
 
-
-[def]: image.png
