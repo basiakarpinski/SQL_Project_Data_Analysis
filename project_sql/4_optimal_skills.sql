@@ -1,7 +1,7 @@
 /* 
 Question: What are the most optimal skills to learn (high demand and high paying)?
-- Identify skills in high deman and associated with high average salaries for remote Software Eng roles
-- Concentrated on Remote positions with speicified salaries
+- Identify skills in high demand and associated with high average salaries for remote Software Eng roles
+- Concentrated on Remote positions with specified salaries
 - Why? Targets skills that offer job security and financial gain, for efficient Software Eng edification
 */
 
@@ -44,7 +44,7 @@ WITH skills_demand AS ( --most frequent skill req
 )
 
 SELECT
-    skills_demand.skill_id,
+   -- skills_demand.skill_id,
     skills_demand.skills,
     demand_count,
     avg_salary
