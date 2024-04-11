@@ -9,16 +9,14 @@ Based on the methology presented, it is recommended for budding software enginee
  I undertook this project not because I have the intention of pivoting into a software engineering role, but because the demand for such skills across various industries has notably grown in the last ten years, and is projected to stay on this trend with the diversification of consumer-facing maker technology. It stands to reason then that a valuable, versatile worker should have not only the skills niche to their subject area, but a preliminary understanding of programming for integration of new tools into software-agnostic industry pipelines. Summarily, an interdisciplinary approach to computer programming is **more useful to collaborating teams, creates skill overlap and cost-efficient redundancy, and allows companies to keep up with ever-evolving sectors of their industry.** Human Swiss-army knife, 2024 edition.
 
 ## Methodology
- -- using 2023 webscrape of technology jobs (datanerd.tech)
- The dataset used for this project was collected from 
+
+ The dataset used for this project was collected from uke Barousse's [SQL Course](https://lukebarousse.com/sql). The comprehensive course features datasets needed for querying, practice problems, video lessons to guide first-time data analysts, and further practice problems for developing confidence and proficiency.
  
  ### The programs and languages used for this project were:
  - **PostgreSQL** for connecting the database and managing data
  - **SQL** as the primary query language
  - **Visual Studio Code** for compiling queries and creating datasets
  - **Github** for version control, organizing results, and publicly presenting the repository of findings here
-
- -- focus on remote Software Eng jobs 
  
  Four SQL queries were created for this analysis, accessible here: [project_sql_folder](/project_sql/). 
  
@@ -42,11 +40,30 @@ Based on the methology presented, it is recommended for budding software enginee
  ![Results from top 20 salaried jobs](/project_sql/assets/Skill_Demand_for_Top_20_Highest-Salaried_Job_Postings.png/)
 
  3. *What is the average salary per skill across all remote software engineering jobs?*  
-  For this section, I removed the restriction of top 20 jobs and focused on all software engineer jobs in the database. The goal was to isolate for remote software engineering job postings, extract the skills needed for each, and calculate the mean salary for all jobs requiring a given skill. The results from this query, when compared against the previous, would help determine if the skills required for high-salary jobs are exclusive to well-paid mid-to-senior level job postings.   
+  For this section, I removed the restriction of top 20 jobs and focused on all software engineer jobs in the database. The goal was to isolate for remote software engineering job postings, extract the skills needed for each, and calculate the mean salary for all jobs requiring a given skill. The results from this query, when compared against the previous, would help determine if the skills required for high-salary jobs are exclusive to well-paid mid-to-senior level job postings.
+  ```sql
+    SELECT
+        skills,
+        ROUND(AVG(salary_year_avg), 0) AS avg_salary
 
-  ![Results for average salary per skill. Due to the number of skills, labels have been concatenated. please see the linked SQL file for full results.](/project_sql/assets/Average_Salary_Per_Skill.png)   
+    FROM job_postings_fact
+        INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+        INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
 
-  The most-requested skills for the top 20 (and top 10) highest-salaried job postings (Query 2) are highlighted bright green in the chart. The results show that the **average salary for these skills fall around the mean, likely indicating that they are skills in demand not only in senior roles but at various levels of experience.** Those skills which had the highest average salary require further analysis; I suspect they had a smaller salary sample set either because they are used in specialized industries or for niche engineering functions.
+    WHERE
+        job_title_short = 'Software Engineer' 
+        AND salary_year_avg IS NOT NULL
+        AND job_location = 'Anywhere'
+
+    GROUP BY
+        skills
+
+    ORDER BY
+        avg_salary DESC
+  ```
+  The most-requested skills for the top 20 (and top 10) highest-salaried job postings (Query 2) are highlighted bright green in the chart. The results show that the **average salary for these skills fall around the mean, likely indicating that they are skills in demand not only in senior roles but at various levels of experience.** Those skills which had the highest average salary require further analysis; I suspect they had a smaller salary sample set either because they are used in specialized industries or for niche engineering functions.  
+
+ ![Results for average salary per skill. Due to the number of skills, labels have been concatenated. please see the linked SQL file for full results.](/project_sql/assets/Average_Salary_Per_Skill.png)   
 
  4. *What are the best skills to have for software engineering jobs, correlating market demand and average salary?*  
   In the final query, I created a common talbe expression (CTE) that compared the demand of various skills against their average salary; in other words, a concatenation of Query 2, without the top-salaried limit, and Query 3. The goal is to extrapolate the hard skills which provide both employability via high market demand, and are well compensated—the "best" skills to prioritize learning. This query allows some fine turning based on which of the aforementions two conditions is more important to an individual; as written it prioritizes average salary first and, where the pay may be the same, by demand. The results of this query are limited to the skills that appeared in ten or more job postings for brevity.  
