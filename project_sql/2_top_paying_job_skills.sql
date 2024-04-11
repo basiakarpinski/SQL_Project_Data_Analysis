@@ -43,7 +43,7 @@ GROUP BY
 ORDER BY
     num_of_job_requiring_this_skill DESC
 
-/*JSON RESULTS:
+/*JSON RESULTS of top 10:
 [
   {
     "skills": "mongodb",

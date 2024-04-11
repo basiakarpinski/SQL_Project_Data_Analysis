@@ -1,8 +1,8 @@
 /*
 Question: What is the average salary per skill? does it correlate with the top 10 or top 20 highest paying job postings?
-- Look at avg salary associated with ear skill for Software Eng positions
-- Focuses on roles with specified yearly salaries, with 'work from anywhere'
-- Why? To determine most valuable skill to learn and validate it across previous results of top-paying jobs.
+- Look at avg salary associated with each skill for Software Eng positions
+- Focuses on roles with specified yearly salaries, with no work location
+- Why? To determine most valued skill to learn and validate it across previous results of top-paying jobs.
 */
 
 SELECT
