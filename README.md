@@ -51,7 +51,7 @@ Based on the methology presented, it is recommended for budding software enginee
  4. *What are the best skills to have for software engineering jobs, correlating market demand and average salary?*  
   In the final query, I created a common talbe expression (CTE) that compared the demand of various skills against their average salary; in other words, a concatenation of Query 2, without the top-salaried limit, and Query 3. The goal is to extrapolate the hard skills which provide both employability via high market demand, and are well compensated—the "best" skills to prioritize learning. This query allows some fine turning based on which of the aforementions two conditions is more important to an individual; as written it prioritizes average salary first and, where the pay may be the same, by demand. The results of this query are limited to the skills that appeared in ten or more job postings for brevity.  
 
-![Results for skills listed in software engineer postings at least ten times, ordered by average salary across those postings.](/project_sql/assets/project_sql/assets/optimized-for-demand-and-pay.png)  
+![Results for skills listed in software engineer postings at least ten times, ordered by average salary across those postings.](/project_sql/assets/optimized-for-demand-and-pay.png)  
 
 By this table, the skills which are both in-demand in software engineer roles and well paid are **typescript, javascript, and python.** Interestingly, these results more closely match the output from Query 2 than Query 3, corroborating the suspicion that skills with higher salaries likely have low demand and their average salary was based on a small subsample.
 
